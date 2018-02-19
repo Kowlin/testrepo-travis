@@ -1,18 +1,16 @@
-dist: trusty
 language: python
 python:
-- 3.5.3
-before_script:
-- set DEPLOYING=true
-script:
-- printenv
-cache: pip
-notifications:
-  email: false
+  - 3.5.3
+  - 3.6.0
+
+script: echo "Running tests against $(python -v) ..."
+script: printenv
 
 jobs:
   include:
-    - stage: Deployment
+    - stage: release
       env:
         - DEPLOYING=true
-      script: echo "Deploying to GitHub releases ..."
+      python: "3.6.0"
+      script: echo "Deploying"
+      script: printenv
