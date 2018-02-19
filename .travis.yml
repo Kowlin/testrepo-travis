@@ -9,3 +9,10 @@ script:
 cache: pip
 notifications:
   email: false
+
+jobs:
+  include:
+    - stage: Deployment
+      env:
+        - DEPLOYING=true
+      script: echo "Deploying to GitHub releases ..."
