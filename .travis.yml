@@ -1,0 +1,11 @@
+dist: trusty
+language: python
+python:
+- 3.5.3
+before_script:
+- set DEPLOYING=true
+script:
+- printenv
+cache: pip
+notifications:
+  email: false
